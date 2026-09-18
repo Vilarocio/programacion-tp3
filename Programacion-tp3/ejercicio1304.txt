@@ -1,0 +1,44 @@
+1
+def escribe_media():
+media = (a + b) / 2
+La funcion intenta utilizar a y b, pero esas variables estan definidas
+en programa.py, no en funciones.py.
+Por lo tanto, dentro de funciones.py, a y b no existen 
+y se produce un NameError.
+Falla por intentar acceder a variables globales de otro modulo.
+2
+def escribe_media(x, y):
+media = (x + y) / 2
+print("La media de ", a, " y ", b, " es: ", media)
+En este caso, a y b si se pasan correctamente como parametros:
+escribe_media(a, b)
+Por lo tanto:
+x = 3
+y = 5
+media = 4.0
+Pero el problema esta en el print: intenta imprimir a y b, que nuevamente no están definidas dentro de funciones.py.
+Falla por imprimir a y b en lugar de utilizar los parametros x e y.
+Si fuera:
+print("La media de ", x, " y ", y, " es: ", media)
+funcionaria.
+3
+def calcula_media(x, y):
+resultado = (x + y) / 2
+return resultado
+En programa.py:
+a = 3
+b = 5
+print("La media de ", a, " y ", b, " es: ", calcula_media(a, b))
+Se pasan los valores:
+a = 3  x = 3
+b = 5  y = 5
+Entonces:
+(3 + 5) / 2 = 4.0
+Y se imprime:
+La media de 3 y 5 es: 4.0
+Respuesta final
+La unica opcion correcta es la Opcion 3.
+La idea fundamental es: las variables a y b de programa.py 
+no se pueden usar directamente dentro de una funcion definida en 
+otro modulo. Para llevar esos valores a la funcion, se deben pasar
+como parametros, como se hace con x e y en la Opcion 3.
